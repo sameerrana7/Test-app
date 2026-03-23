@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Maison — Join Waitlist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf7f2;
+  --warm: #f5ede0;
+  --brown: #3d2b1f;
+  --brown2: #6b4c3b;
+  --gold: #c9a84c;
+  --gold2: #e8c97a;
+  --green: #3a7d5c;
+  --green2: #52b082;
+  --red2: #e74c3c;
+  --border: #e8ddd0;
+  --text: #2c1a0e;
+  --muted: #9c8070;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  background-image:
+    radial-gradient(ellipse at 85% 5%, rgba(201,168,76,0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 5% 95%, rgba(58,125,92,0.09) 0%, transparent 50%);
+  min-height: 100vh;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page { width:100%; max-width:460px; padding:48px 24px 80px; }
+
+.brand { text-align:center; margin-bottom:36px; }
+.brand-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:white; border:1px solid var(--border);
+  border-radius:100px; padding:6px 16px;
+  font-size:12px; font-weight:500; color:var(--muted); margin-bottom:20px;
+}
+.brand-badge .dot {
+  width:6px; height:6px; background:var(--green2);
+  border-radius:50%; box-shadow:0 0 6px var(--green2); animation:blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.logo-wrap {
+  width:72px; height:72px;
+  background:linear-gradient(145deg,#3d2b1f,#6b4c3b);
+  border-radius:20px; display:inline-flex; align-items:center;
+  justify-content:center; font-size:32px; margin-bottom:16px;
+  box-shadow:0 10px 40px rgba(61,43,31,0.2);
+}
+.brand-name { font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:var(--brown); }
+.brand-tagline { font-size:14px; color:var(--muted); font-weight:300; margin-top:4px; font-style:italic; }
+
+.info-strip { display:flex; gap:12px; margin-bottom:28px; }
+.info-card {
+  flex:1; background:white; border:1px solid var(--border);
+  border-radius:14px; padding:16px; text-align:center;
+}
+.info-card .val { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--brown); }
+.info-card .lbl { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+
+.form-card {
+  background:white; border:1px solid var(--border);
+  border-radius:22px; padding:32px 28px;
+  box-shadow:0 8px 48px rgba(61,43,31,0.07);
+}
+.form-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:600; color:var(--brown); margin-bottom:4px; }
+.form-sub { font-size:13px; color:var(--muted); font-weight:300; margin-bottom:28px; line-height:1.5; }
+
+.fgroup { margin-bottom:20px; }
+.flabel { display:block; font-size:11px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--brown2); margin-bottom:8px; }
+.finput {
+  width:100%; padding:14px 16px; border:1.5px solid var(--border);
+  border-radius:12px; font-family:'Outfit',sans-serif; font-size:16px;
+  color:var(--text); background:var(--cream); outline:none; transition:all 0.2s; -webkit-appearance:none;
+}
+.finput:focus { border-color:var(--gold); background:white; box-shadow:0 0 0 3px rgba(201,168,76,0.12); }
+.finput.err { border-color:var(--red2); }
+
+.party-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
+.p-btn {
+  aspect-ratio:1; border-radius:10px; border:1.5px solid var(--border);
+  background:var(--cream); font-family:'Outfit',sans-serif; font-size:15px;
+  font-weight:500; cursor:pointer; transition:all 0.15s; color:var(--brown2);
+  display:flex; align-items:center; justify-content:center;
+}
+.p-btn:hover { border-color:var(--gold); background:rgba(201,168,76,0.06); }
+.p-btn.sel { background:var(--gold); border-color:var(--gold); color:white; font-weight:700; box-shadow:0 4px 14px rgba(201,168,76,0.35); transform:scale(1.05); }
+.p-btn.wide { grid-column:span 3; aspect-ratio:auto; padding:12px 6px; font-size:13px; }
+
+.btn-join {
+  width:100%; padding:17px;
+  background:linear-gradient(135deg,var(--brown) 0%,var(--brown2) 100%);
+  color:white; border:none; border-radius:14px;
+  font-family:'Outfit',sans-serif; font-size:16px; font-weight:600;
+  cursor:pointer; margin-top:8px; transition:all 0.2s;
+  box-shadow:0 6px 24px rgba(61,43,31,0.22);
+}
+.btn-join:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(61,43,31,0.3); }
+.btn-join:active { transform:translateY(0) scale(0.99); }
+.btn-join:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+
+#success { display:none; }
+.success-wrap { text-align:center; }
+.s-icon {
+  width:80px; height:80px;
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  border-radius:50%; display:inline-flex; align-items:center;
+  justify-content:center; font-size:36px; margin-bottom:18px;
+  box-shadow:0 10px 32px rgba(58,125,92,0.28);
+  animation:pop 0.45s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes pop { from{transform:scale(0.4);opacity:0} to{transform:scale(1);opacity:1} }
+.s-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--brown); margin-bottom:6px; }
+.s-sub { font-size:14px; color:var(--muted); margin-bottom:24px; }
+.token-box {
+  display:inline-block;
+  background:linear-gradient(135deg,var(--brown),var(--brown2));
+  color:var(--gold2); font-family:'Playfair Display',serif;
+  font-size:56px; font-weight:700; padding:18px 44px;
+  border-radius:20px; margin:0 auto 24px;
+  box-shadow:0 10px 40px rgba(61,43,31,0.25); letter-spacing:6px;
+}
+.s-details {
+  background:var(--warm); border:1px solid var(--border);
+  border-radius:16px; padding:20px; margin-bottom:20px; text-align:left;
+}
+.s-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; font-size:14px; border-bottom:1px solid var(--border); }
+.s-row:last-child { border-bottom:none; }
+.s-row .k { color:var(--muted); }
+.s-row .v { font-weight:600; color:var(--brown); }
+.notice {
+  background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.3);
+  border-radius:12px; padding:14px 18px; font-size:13px; color:var(--brown2);
+  margin-bottom:20px; line-height:1.6;
+}
+.notice strong { color:var(--brown); }
+.btn-back {
+  width:100%; padding:14px; border:1.5px solid var(--border);
+  border-radius:12px; background:transparent; font-family:'Outfit',sans-serif;
+  font-size:14px; cursor:pointer; color:var(--muted); transition:all 0.2s;
+}
+.btn-back:hover { border-color:var(--brown2); color:var(--brown); }
+
+/* Loading overlay */
+.loading-overlay {
+  position:fixed; inset:0; background:rgba(250,247,242,0.85);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  z-index:999; gap:14px;
+}
+.spinner {
+  width:40px; height:40px; border:3px solid var(--border);
+  border-top-color:var(--gold); border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin { to{transform:rotate(360deg)} }
+.loading-text { font-size:14px; color:var(--muted); }
+
+.toast-wrap { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:999; }
+.toast {
+  background:var(--brown); color:white; padding:12px 22px;
+  border-radius:100px; font-size:13px; font-weight:500;
+  white-space:nowrap; animation:toast-up 0.3s ease;
+  box-shadow:0 6px 20px rgba(61,43,31,0.3);
+}
+@keyframes toast-up { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loading">
+  <div class="spinner"></div>
+  <div class="loading-text">Connecting...</div>
+</div>
+
+<div class="page">
+  <div class="brand">
+    <div class="brand-badge"><span class="dot"></span> Waitlist Open</div>
+    <div class="logo-wrap">🍽️</div>
+    <div class="brand-name">La Maison</div>
+    <div class="brand-tagline">Fine dining, worth the wait.</div>
+  </div>
+
+  <div class="info-strip">
+    <div class="info-card">
+      <div class="val" id="strip-waiting">—</div>
+      <div class="lbl">Groups Waiting</div>
+    </div>
+    <div class="info-card">
+      <div class="val" id="strip-wait">—</div>
+      <div class="lbl">Est. Wait (min)</div>
+    </div>
+  </div>
+
+  <div class="form-card" id="form-section">
+    <div class="form-title">Join the Waitlist</div>
+    <div class="form-sub">Enter your details. We'll call your number when your table is ready.</div>
+
+    <div class="fgroup">
+      <label class="flabel">Your Name</label>
+      <input class="finput" id="c-name" type="text" placeholder="e.g. Rahul Sharma" autocomplete="name" />
+    </div>
+    <div class="fgroup">
+      <label class="flabel">Phone Number</label>
+      <input class="finput" id="c-phone" type="tel" inputmode="numeric" placeholder="e.g. 9876543210" autocomplete="tel" />
+    </div>
+    <div class="fgroup">
+      <label class="flabel">Party Size — How many guests?</label>
+      <div class="party-grid">
+        <button class="p-btn" onclick="pick(1,this)">1</button>
+        <button class="p-btn" onclick="pick(2,this)">2</button>
+        <button class="p-btn" onclick="pick(3,this)">3</button>
+        <button class="p-btn" onclick="pick(4,this)">4</button>
+        <button class="p-btn" onclick="pick(5,this)">5</button>
+        <button class="p-btn" onclick="pick(6,this)">6</button>
+        <button class="p-btn wide" onclick="pick(8,this)">7 – 8</button>
+        <button class="p-btn wide" onclick="pick(9,this)">9 +</button>
+      </div>
+    </div>
+    <button class="btn-join" id="join-btn" onclick="joinQueue()">Get My Waiting Number →</button>
+  </div>
+
+  <div class="form-card" id="success">
+    <div class="success-wrap">
+      <div class="s-icon">✓</div>
+      <div class="s-title">You're on the list!</div>
+      <div class="s-sub">Your waiting number is</div>
+      <div class="token-box" id="s-token">W-01</div>
+      <div class="s-details">
+        <div class="s-row"><span class="k">Name</span><span class="v" id="s-name">—</span></div>
+        <div class="s-row"><span class="k">Party Size</span><span class="v" id="s-party">—</span></div>
+        <div class="s-row"><span class="k">Phone</span><span class="v" id="s-phone">—</span></div>
+        <div class="s-row"><span class="k">Est. Wait</span><span class="v" id="s-wait">—</span></div>
+        <div class="s-row"><span class="k">Position in Line</span><span class="v" id="s-pos">—</span></div>
+      </div>
+      <div class="notice">
+        📢 <strong>Please stay near the entrance.</strong><br>
+        Listen for your number to be announced. Do not leave the premises.
+      </div>
+      <button class="btn-back" onclick="reset()">← Register another guest</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="tw"></div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAFNI4aFSPf_efB-W0QCHKv5GqdC3RdYf8",
+    authDomain: "test-app-49363.firebaseapp.com",
+    databaseURL: "https://test-app-49363-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "test-app-49363",
+    storageBucket: "test-app-49363.firebasestorage.app",
+    messagingSenderId: "767988275175",
+    appId: "1:767988275175:web:f2bdbf835dd50914ca8f42"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  const waitlistRef = ref(db, 'waitlist');
+  const counterRef = ref(db, 'meta/counter');
+  const AVG = 12;
+  let party = 0;
+
+  // Hide loading once connected
+  onValue(ref(db, '.info/connected'), (snap) => {
+    if (snap.val() === true) {
+      document.getElementById('loading').style.display = 'none';
+    }
+  });
+
+  // Live strip updates
+  onValue(waitlistRef, (snap) => {
+    const data = snap.val() || {};
+    const waiting = Object.values(data).filter(g => g.status === 'waiting').length;
+    document.getElementById('strip-waiting').textContent = waiting;
+    document.getElementById('strip-wait').textContent = waiting === 0 ? '< 5' : String(waiting * AVG);
+  });
+
+  window.pick = function(n, el) {
+    party = n;
+    document.querySelectorAll('.p-btn').forEach(b => b.classList.remove('sel'));
+    el.classList.add('sel');
+  };
+
+  window.joinQueue = async function() {
+    const name = document.getElementById('c-name').value.trim();
+    const phone = document.getElementById('c-phone').value.trim();
+    let ok = true;
+    if (!name) { shake('c-name'); ok = false; }
+    if (!phone || phone.replace(/\D/,'').length < 8) { shake('c-phone'); ok = false; }
+    if (!party) { toast('Please select your party size'); ok = false; }
+    if (!ok) return;
+
+    const btn = document.getElementById('join-btn');
+    btn.disabled = true;
+    btn.textContent = 'Adding you...';
+
+    try {
+      // Get and increment counter
+      const snap = await get(counterRef);
+      const count = (snap.val() || 0) + 1;
+
+      // Save to Firebase
+      const { set: fbSet } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+      const { ref: fbRef } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+
+      const token = `W-${String(count).padStart(2,'0')}`;
+      const nowT = new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+
+      const guest = { token, name, phone, party, status: 'waiting', joinedAt: nowT, createdAt: Date.now() };
+
+      await push(waitlistRef, guest);
+
+      // Update counter
+      const { set } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+      await set(fbRef(db, 'meta/counter'), count);
+
+      // Get position
+      const wSnap = await get(waitlistRef);
+      const wData = wSnap.val() || {};
+      const waitingList = Object.values(wData).filter(g => g.status === 'waiting');
+      const pos = waitingList.length;
+      const estWait = pos <= 1 ? '< 5' : String((pos - 1) * AVG);
+
+      document.getElementById('s-token').textContent = token;
+      document.getElementById('s-name').textContent = name;
+      document.getElementById('s-party').textContent = `${party} ${party === 1 ? 'person' : 'people'}`;
+      document.getElementById('s-phone').textContent = phone;
+      document.getElementById('s-wait').textContent = estWait + ' mins';
+      document.getElementById('s-pos').textContent = `#${pos} in line`;
+
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+
+    } catch(e) {
+      toast('Error connecting. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Get My Waiting Number →';
+    }
+  };
+
+  window.reset = function() {
+    party = 0;
+    document.getElementById('c-name').value = '';
+    document.getElementById('c-phone').value = '';
+    document.querySelectorAll('.p-btn').forEach(b => b.classList.remove('sel'));
+    const btn = document.getElementById('join-btn');
+    btn.disabled = false;
+    btn.textContent = 'Get My Waiting Number →';
+    document.getElementById('form-section').style.display = 'block';
+    document.getElementById('success').style.display = 'none';
+  };
+
+  window.shake = function(id) {
+    const el = document.getElementById(id);
+    el.classList.add('err');
+    el.animate([
+      {transform:'translateX(0)'},{transform:'translateX(-7px)'},
+      {transform:'translateX(7px)'},{transform:'translateX(-4px)'},
+      {transform:'translateX(0)'}
+    ], { duration:320 });
+    setTimeout(() => el.classList.remove('err'), 700);
+  };
+
+  window.toast = function(msg) {
+    const t = document.createElement('div');
+    t.className = 'toast'; t.textContent = msg;
+    document.getElementById('tw').appendChild(t);
+    setTimeout(() => t.remove(), 2800);
+  };
+
+  document.getElementById('c-name').addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('c-phone').focus(); });
+  document.getElementById('c-phone').addEventListener('keydown', e => { if(e.key==='Enter') window.joinQueue(); });
+</script>
+</body>
+</html>
